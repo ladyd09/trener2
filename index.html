@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Olimpia Mędrzak – Trener Personalny</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <header class="hero">
+    <img src="oli.jpg" alt="Jan Kowalski" class="avatar">
+    <h1>Olimpia Mędrzak</h1>
+    <p>Certyfikowany Trener Personalny | Motywacja | Skuteczność</p>
+  </header>
+  <div class="toggle-container">
+  <button id="toggle-theme">🌙 Zmień motyw</button>
+</div>
+
+
+  <section id="o-mnie" class="section reveal">
+    <h2>O mnie</h2>
+    <p>
+      Jestem trenerem personalnym z 5-letnim doświadczeniem. Specjalizuję się w treningach siłowych, funkcjonalnych oraz redukcji masy ciała. Współpracuję zarówno z osobami początkującymi, jak i zaawansowanymi.
+    </p>
+    <div class="slider">
+  <div class="slides">
+    <img src="oli2.jpg" alt="Zdjęcie 1">
+    <img src="oli3.jpg" alt="Zdjęcie 2">
+    <img src="oli4.jpg" alt="Zdjęcie 3">
+  </div>
+</div>
+
+  </section>
+
+  <section id="oferta" class="section reveal">
+    <h2>Oferta</h2>
+    <ul>
+      <li>Treningi personalne 1:1</li>
+      <li>Plany treningowe online</li>
+     
+      <li>Trening funkcjonalny i rehabilitacyjny</li>
+    </ul>
+  </section>
+
+  <section id="opinie" class="section reveal">
+    <h2>Opinie klientów</h2>
+    <blockquote></blockquote>
+    <blockquote></blockquote>
+  </section>
+  <section id="galeria" class="section reveal">
+  <h2>Galeria treningowa</h2>
+  <div class="galeria-grid">
+    <img src="trening1.jpg" alt="Trening 1">
+    <img src="trening2.jpg" alt="Trening 2">
+    <img src="trening3.jpg" alt="Trening 3">
+    <img src="trening4.jpg" alt="Trening 4">
+  </div>
+</section>
+
+<!-- CERTYFIKATY -->
+<section id="certyfikaty" class="section reveal">
+  <h2>Certyfikaty</h2>
+  <ul class="certyfikaty-lista">
+    <li>
+      <strong>Trener Personalny</strong> – Rokfit(2024)
+    </li>
+   
+  </ul>
+</section>
+
+  <section id="kontakt" class="section reveal">
+    <h2>Kontakt</h2>
+    <h2> + 790 600 519</h2>
+    </form>
+  </section>
+
+  <footer>
+    &copy; 2025 Olimpia Mędrzak| Trener Personalny
+     
+  </footer>
+
+<script>
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+
+  function revealOnScroll() {
+    for (const el of reveals) {
+      const windowHeight = window.innerHeight;
+      const revealTop = el.getBoundingClientRect().top;
+      const revealPoint = 100;
+
+      if (revealTop < windowHeight - revealPoint) {
+        el.classList.add('active');
+      }
+    }
+  }
+
+  window.addEventListener('scroll', revealOnScroll);
+  revealOnScroll(); // uruchom przy starcie
+
+  // Light/Dark theme toggle
+  const toggleBtn = document.getElementById('toggle-theme');
+  const body = document.body;
+
+  function setTheme(theme) {
+    body.classList.remove('light', 'dark');
+    body.classList.add(theme);
+    localStorage.setItem('theme', theme);
+  }
+
+  const savedTheme = localStorage.getItem('theme') || 'dark';
+  setTheme(savedTheme);
+
+  toggleBtn.addEventListener('click', () => {
+    const newTheme = body.classList.contains('dark') ? 'light' : 'dark';
+    setTheme(newTheme);
+  });
+</script>
+
+  
+</body>
+</html>
